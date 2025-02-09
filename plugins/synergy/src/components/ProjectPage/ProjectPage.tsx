@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSynergyApi } from '../../hooks';
+import { useSynergyApi, useSynergyTranslation } from '../../hooks';
 import {
   CardTab,
   InfoCard,
@@ -45,6 +45,7 @@ const MarkdownComponent = ({ content, message }: TabsContentProps) => {
 };
 
 export const ProjectPage = () => {
+  const { t } = useSynergyTranslation();
   const tabStyles = {
     fontSize: '14px',
     padding: '18px 8px 13px ',
@@ -69,22 +70,22 @@ export const ProjectPage = () => {
 
   const issueTabs: TabContent[] = [
     {
-      label: 'Pinned Issues',
+      label: t('projectPage.tabs.pinned'),
       style: tabStyles,
       children: (
         <IssuesComponent
           issues={projectData?.pinnedIssues}
-          message="No Pinned Issues found for this project."
+          message={t('projectPage.notFound.pinned')}
         />
       ),
     },
     {
-      label: 'All Issues',
+      label: t('projectPage.tabs.all'),
       style: tabStyles,
       children: (
         <IssuesComponent
           issues={projectData?.issues}
-          message="No Open Issues found for this project."
+          message={t('projectPage.notFound.all')}
         />
       ),
     },
@@ -92,22 +93,22 @@ export const ProjectPage = () => {
 
   const otherTabs: TabContent[] = [
     {
-      label: 'README',
+      label: t('projectPage.tabs.readme'),
       style: tabStyles,
       children: (
         <MarkdownComponent
           content={projectData?.readme}
-          message="README file not found."
+          message={t('projectPage.notFound.readme')}
         />
       ),
     },
     {
-      label: 'Contributing Guidelines',
+      label: t('projectPage.tabs.guidelines'),
       style: tabStyles,
       children: (
         <MarkdownComponent
           content={projectData?.contributingGuidelines}
-          message="No contribution guideline found."
+          message={t('projectPage.notFound.guidelines')}
         />
       ),
     },
@@ -118,8 +119,8 @@ export const ProjectPage = () => {
   return (
     projectData && (
       <InfoCard
-        title="Project Details"
-        subheader="Explore the project's open issues and start contributing."
+        title={t('projectPage.title')}
+        subheader={t('projectPage.subTitle')}
       >
         <Box sx={{ mx: '.25rem', mb: '.25rem' }}>
           <Grid container spacing={2} justifyContent="flex-start">
@@ -132,12 +133,12 @@ export const ProjectPage = () => {
                 }}
               >
                 <div>
-                  <Link to="/synergy">Projects</Link> /{' '}
+                  <Link to="/synergy">{t('projectPage.breadcrumb')}</Link> /{' '}
                   <span>{projectData.name}</span>
                 </div>
 
                 <LinkButton to="/synergy" variant="contained">
-                  Back to All Projects
+                  {t('projectPage.backToProjectsBtnText')}
                 </LinkButton>
               </Box>
             </Grid>

@@ -2,12 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.3.0](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.2.2...v1.3.0) (2024-12-11)
+## [1.5.0](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.4.1...v1.5.0) (2024-12-22)
 
 
 ### Features
 
-* issues made optional via config ([#11](https://github.com/jiteshy/backstage-plugin-synergy/issues/11)) ([f3dce39](https://github.com/jiteshy/backstage-plugin-synergy/commit/f3dce3995e9747a573d6da46330ad3a154149da1))
+* translation support added to plugin ([#18](https://github.com/jiteshy/backstage-plugin-synergy/issues/18)) ([1c1e7a7](https://github.com/jiteshy/backstage-plugin-synergy/commit/1c1e7a7298353de90abaec1f84966658eb250395))
+
+### [1.4.1](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.4.0...v1.4.1) (2024-12-22)
+
+
+### Bug Fixes
+
+* dark mode ui fixes ([#17](https://github.com/jiteshy/backstage-plugin-synergy/issues/17)) ([8d040e8](https://github.com/jiteshy/backstage-plugin-synergy/commit/8d040e89d044bd5b3e821c8d1aa958b610420f5c))
+
+## [1.4.0](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.3.0...v1.4.0) (2024-12-20)
+
+### Features
+
+- add entity link to project card ([#16](https://github.com/jiteshy/backstage-plugin-synergy/issues/16)) ([687b304](https://github.com/jiteshy/backstage-plugin-synergy/commit/687b304803fad48cf0d3cf99278b923e33596913))
+
+## [1.3.0](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.2.2...v1.3.0) (2024-12-11)
+
+### Features
+
+- issues made optional via config ([#11](https://github.com/jiteshy/backstage-plugin-synergy/issues/11)) ([f3dce39](https://github.com/jiteshy/backstage-plugin-synergy/commit/f3dce3995e9747a573d6da46330ad3a154149da1))
 
 ### [1.2.2](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.2.1...v1.2.2) (2024-12-03)
 

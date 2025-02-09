@@ -1,7 +1,7 @@
 {
   "name": "@jiteshy/backstage-plugin-synergy-common",
   "description": "Common functionalities for the synergy plugin",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "keywords": [
     "backstage",
     "plugin",

@@ -5,7 +5,7 @@ import {
   ResponseErrorPanel,
 } from '@backstage/core-components';
 import { ProjectIssue } from '@jiteshy/backstage-plugin-synergy-common';
-import { useSynergyApi } from '../../hooks';
+import { useSynergyApi, useSynergyTranslation } from '../../hooks';
 import { Box, Grid } from '@material-ui/core';
 import { Dropdown } from '../UI';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -13,6 +13,7 @@ import { IssuesList } from '../IssuesList';
 import { InfoBanner } from '../InfoBanner';
 
 export const Issues = () => {
+  const { t } = useSynergyTranslation();
   const {
     value: issuesList,
     loading,
@@ -89,8 +90,8 @@ export const Issues = () => {
     <Grid container>
       <Grid item xs={12}>
         <InfoBanner
-          title="Explore inner-source issues from projects in your org which are not exclusively inner-source"
-          subtitle="Issues below aren’t limited to inner-source projects—any project can request contributions from the inner-source community."
+          title={t('issueTab.infoTitle')}
+          subtitle={t('issueTab.infoSubTitle')}
         />
       </Grid>
       <Grid item xs={12}>
@@ -106,7 +107,7 @@ export const Issues = () => {
         >
           <FilterListIcon fontSize="medium" style={{ marginTop: '20px' }} />
           <Dropdown
-            label="Category"
+            label={t('homePage.filterPlaceholderText')}
             items={prepareCategories(issuesList)}
             current={category}
             handleSelect={filterByCategory}
@@ -115,25 +116,25 @@ export const Issues = () => {
       </Grid>
       <Grid item xs={12} md={6}>
         <InfoCard
-          title="Pinned Issues"
-          subheader="Pinned issues across repos in your org"
+          title={t('issueTab.pinnedIssuesCard.title')}
+          subheader={t('issueTab.pinnedIssuesCard.subTitle')}
         >
           {filteredPinnedIssues.length ? (
             <IssuesList issues={filteredPinnedIssues} />
           ) : (
-            <p>No Pinned Inner-Source issues found.</p>
+            <p>{t('issueTab.pinnedIssuesCard.notFound')}</p>
           )}
         </InfoCard>
       </Grid>
       <Grid item xs={12} md={6}>
         <InfoCard
-          title="Other Issues"
-          subheader="Issues across repos in your org (excluding pinned)"
+          title={t('issueTab.otherIssuesCard.title')}
+          subheader={t('issueTab.otherIssuesCard.subTitle')}
         >
           {filteredIssues.length ? (
             <IssuesList issues={filteredIssues} />
           ) : (
-            <p>No Inner-Source issues found.</p>
+            <p>{t('issueTab.otherIssuesCard.notFound')}</p>
           )}
         </InfoCard>
       </Grid>

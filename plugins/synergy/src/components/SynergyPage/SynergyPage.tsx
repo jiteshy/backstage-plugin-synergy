@@ -12,25 +12,30 @@ import { projectRouteRef } from '../../routes';
 import { ProjectPage } from '../ProjectPage';
 import { HomePage } from '../HomePage';
 import { FlatRoutes } from '@backstage/core-app-api';
+import { useSynergyTranslation } from '../../hooks';
 
-export const SynergyPage = () => (
-  <Page themeId="tool">
-    <Header title="Welcome to Synergy!" subtitle="Our Inner Source Hub" />
-    <Content>
-      <ContentHeader title="Inner-Source Projects & Issues">
-        <SupportButton>
-          This plugin creates an Inner Source dashboard showing all repositories
-          needing contributions and more.
-        </SupportButton>
-      </ContentHeader>
-      <FlatRoutes>
-        <Route index element={<HomePage />} />
-        <Route path={projectRouteRef.path} element={<ProjectPage />} />
-        <Route
-          path="*"
-          element={<ErrorPage statusMessage="Page Not Found" />}
-        />
-      </FlatRoutes>
-    </Content>
-  </Page>
-);
+export const SynergyPage = () => {
+  const { t } = useSynergyTranslation();
+
+  return (
+    <Page themeId="tool">
+      <Header
+        title={t('synergyPage.title')}
+        subtitle={t('synergyPage.subTitle')}
+      />
+      <Content>
+        <ContentHeader title={t('homePage.title')}>
+          <SupportButton>{t('homePage.helpText')}</SupportButton>
+        </ContentHeader>
+        <FlatRoutes>
+          <Route index element={<HomePage />} />
+          <Route path={projectRouteRef.path} element={<ProjectPage />} />
+          <Route
+            path="*"
+            element={<ErrorPage statusMessage={t('homePage.notFoundError')} />}
+          />
+        </FlatRoutes>
+      </Content>
+    </Page>
+  );
+};

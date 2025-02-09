@@ -11,3 +11,7 @@ configuration options, and usage examples.
 ## Usage
 
 - [Examples](examples.md)
+
+## Integrations
+
+- [Integration with Backstage translations (experimental)](translations.md)

@@ -5,12 +5,13 @@ import {
   ResponseErrorPanel,
 } from '@backstage/core-components';
 import { ProjectIssue } from '@jiteshy/backstage-plugin-synergy-common';
-import { useSynergyApi } from '../../hooks';
+import { useSynergyApi, useSynergyTranslation } from '../../hooks';
 import { Grid } from '@material-ui/core';
 import { IssuesList } from '../IssuesList';
 import { InfoBanner } from '../InfoBanner';
 
-export const UserIssues = () => {
+export const UserContributions = () => {
+  const { t } = useSynergyTranslation();
   const {
     value: issuesList,
     loading,
@@ -46,31 +47,31 @@ export const UserIssues = () => {
     <Grid container>
       <Grid item xs={12}>
         <InfoBanner
-          title="Review your contributions so far"
-          subtitle="You can view the issues you've closed and those currently assigned to you."
+          title={t('contributionTab.infoTitle')}
+          subtitle={t('contributionTab.infoSubTitle')}
         />
       </Grid>
       <Grid item xs={12} md={6}>
         <InfoCard
-          title="Closed Issues"
-          subheader="Inner-Source Issues you have closed so far."
+          title={t('contributionTab.closedIssuesCard.title')}
+          subheader={t('contributionTab.closedIssuesCard.subTitle')}
         >
           {closedIssues.length ? (
             <IssuesList issues={closedIssues} />
           ) : (
-            <p>No Inner-Source contribution yet.</p>
+            <p>{t('contributionTab.closedIssuesCard.notFound')}</p>
           )}
         </InfoCard>
       </Grid>
       <Grid item xs={12} md={6}>
         <InfoCard
-          title="Open Issues"
-          subheader="Inner-Source Issues you are assigned to."
+          title={t('contributionTab.openIssuesCard.title')}
+          subheader={t('contributionTab.openIssuesCard.subTitle')}
         >
           {openIssues.length ? (
             <IssuesList issues={openIssues} />
           ) : (
-            <p>No Inner-Source issues assigned to you.</p>
+            <p>{t('contributionTab.openIssuesCard.notFound')}</p>
           )}
         </InfoCard>
       </Grid>

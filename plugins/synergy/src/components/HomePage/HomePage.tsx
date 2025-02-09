@@ -6,12 +6,14 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import CategoryIcon from '@material-ui/icons/Category';
 import { Projects } from '../Projects';
 import { Issues } from '../Issues';
-import { UserIssues } from '../UserIssues';
-import { Contributions } from '../Contributions';
+import { UserContributions } from '../UserContributions';
+import { Stats } from '../Stats';
 import { configApiRef, useApi } from '@backstage/core-plugin-api';
 import { TabContent } from '../../utils';
+import { useSynergyTranslation } from '../../hooks';
 
 export const HomePage = () => {
+  const { t } = useSynergyTranslation();
   const tabStyles = { fontSize: '16px', padding: '1rem 1.5rem' };
   const config = useApi(configApiRef);
   const hideIssues = config.getOptionalBoolean(
@@ -20,27 +22,27 @@ export const HomePage = () => {
 
   const issuesDependentTabs: TabContent[] = [
     {
-      label: 'Issues',
+      label: t('homePage.tabs.issues'),
       style: tabStyles,
       icon: <BugReportIcon fontSize="medium" />,
       children: <Issues />,
     },
     {
-      label: 'My Contributions',
+      label: t('homePage.tabs.contributions'),
       style: tabStyles,
       icon: <CategoryIcon fontSize="medium" />,
-      children: <UserIssues />,
+      children: <UserContributions />,
     },
     {
-      label: 'Stats & Leaderboard',
+      label: t('homePage.tabs.leaderboard'),
       style: tabStyles,
       icon: <EqualizerIcon fontSize="medium" />,
-      children: <Contributions />,
+      children: <Stats />,
     },
   ];
 
   const projectTab: TabContent = {
-    label: 'Projects',
+    label: t('homePage.tabs.project'),
     style: tabStyles,
     icon: <ListAltIcon fontSize="medium" />,
     children: <Projects />,

@@ -8,9 +8,10 @@ import BugReportIcon from '@material-ui/icons/BugReport';
 import CallMergeIcon from '@material-ui/icons/CallMerge';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { Project } from '@jiteshy/backstage-plugin-synergy-common';
-import { useRouteRef } from '@backstage/core-plugin-api';
+import { configApiRef, useApi, useRouteRef } from '@backstage/core-plugin-api';
 import { projectRouteRef } from '../../routes';
-import { LinkButton } from '@backstage/core-components';
+import { Link, LinkButton } from '@backstage/core-components';
+import { useSynergyTranslation } from '../../hooks';
 
 const useStyles = makeStyles<Theme>(theme => ({
   card: {
@@ -18,7 +19,10 @@ const useStyles = makeStyles<Theme>(theme => ({
     boxShadow:
       'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;',
     transition: '0.3s',
-    color: theme.palette.grey[400],
+    color:
+      theme.palette.type === 'light'
+        ? theme.palette.grey[400]
+        : theme.palette.textSubtle,
     backgroundColor: theme.palette.background.default,
   },
   header: {
@@ -27,10 +31,16 @@ const useStyles = makeStyles<Theme>(theme => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderBottom: `1px solid ${theme.palette.border}`,
-    color: theme.palette.grey[700],
+    color:
+      theme.palette.type === 'light'
+        ? theme.palette.grey[700]
+        : theme.palette.textSubtle,
   },
   title: {
-    color: theme.palette.grey[900],
+    color:
+      theme.palette.type === 'light'
+        ? theme.palette.grey[900]
+        : theme.palette.text.primary,
     fontSize: '24px',
     fontWeight: 'bolder',
     margin: '0px 0px 0.72em',
@@ -43,7 +53,10 @@ const useStyles = makeStyles<Theme>(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    color: theme.palette.primary.light,
+    color:
+      theme.palette.type === 'light'
+        ? theme.palette.primary.light
+        : theme.palette.textSubtle,
     fontSize: '12px',
     marginBottom: '0.35em',
     lineHeight: '1.25rem',
@@ -51,7 +64,10 @@ const useStyles = makeStyles<Theme>(theme => ({
     fontWeight: 'bold',
   },
   description: {
-    color: theme.palette.grey[800],
+    color:
+      theme.palette.type === 'light'
+        ? theme.palette.grey[800]
+        : theme.palette.textSubtle,
     height: '60px',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -74,7 +90,10 @@ const useStyles = makeStyles<Theme>(theme => ({
     display: 'flex',
     alignItems: 'center',
     fontSize: '20px',
-    color: theme.palette.primary.light,
+    color:
+      theme.palette.type === 'light'
+        ? theme.palette.primary.light
+        : theme.palette.textSubtle,
   },
   footerCounts: {
     fontSize: '20px',
@@ -90,31 +109,43 @@ export const ProjectCard = ({
   project: Project;
   hideMore?: boolean;
 }) => {
+  const { t } = useSynergyTranslation();
   const styles = useStyles();
   const projectRoute = useRouteRef(projectRouteRef);
+  const config = useApi(configApiRef);
+  const catalogBasePath = config.getOptionalString('synergy.catalogBasePath');
 
   return (
     <Card className={styles.card}>
       <div className={styles.header}>
         <div>
           {project.isPrivate ? (
-            <LockIcon fontSize="small" titleAccess="Private Repository" />
+            <LockIcon
+              fontSize="small"
+              titleAccess={t('projectCard.hoverText.lock')}
+            />
           ) : (
-            <LockOpenIcon fontSize="small" titleAccess="Public Repository" />
+            <LockOpenIcon
+              fontSize="small"
+              titleAccess={t('projectCard.hoverText.unlock')}
+            />
           )}
         </div>
-        <div>{`Last update on ${project.updatedAt}`}</div>
+        <div>{`${t('projectCard.updatedAt')}${project.updatedAt}`}</div>
       </div>
       <CardContent>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Box className={styles.box}>
-              <div
-                className={styles.subtitle}
-                title="Primary language of the project"
-              >
-                <div>{project.primaryLanguage || 'Other'}</div>
-                <a href={project.url} target="_blank" title="Go to GitHub repo">
+            <Box>
+              <div className={styles.subtitle}>
+                <div title={t('projectCard.hoverText.language')}>
+                  {project.primaryLanguage || t('projectCard.otherLanguage')}
+                </div>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  title={t('projectCard.hoverText.githubIconLink')}
+                >
                   <OpenInNewIcon fontSize="small" />
                 </a>
               </div>
@@ -122,21 +153,38 @@ export const ProjectCard = ({
                 {project.name}
               </div>
               <div className={styles.description}>
-                {project.description ?? 'No description'}
+                {project.description ?? t('projectCard.noDescription')}
               </div>
+              <Box
+                sx={{
+                  py: 1,
+                }}
+              >
+                {catalogBasePath && (
+                  <Link to={`${catalogBasePath}/${project.name}`}>
+                    {t('projectCard.entityLink')}
+                  </Link>
+                )}
+              </Box>
               <div className={styles.topics}>
                 {project.topics.map((topic: string) => (
                   <Chip key={topic} label={topic} />
                 ))}
               </div>
               <div className={styles.footer}>
-                <div className={styles.footerIcon} title="Repository Stars">
+                <div
+                  className={styles.footerIcon}
+                  title={t('projectCard.hoverText.stars')}
+                >
                   <StarIcon />
                   <span className={styles.footerCounts}>
                     {project.starsCount}
                   </span>
                 </div>
-                <div className={styles.footerIcon} title="Open Issues">
+                <div
+                  className={styles.footerIcon}
+                  title={t('projectCard.hoverText.issues')}
+                >
                   <BugReportIcon />
                   <span className={styles.footerCounts}>
                     {project.issuesCount}
@@ -144,7 +192,7 @@ export const ProjectCard = ({
                 </div>
                 <div
                   className={styles.footerIcon}
-                  title="Overall Contributions so far"
+                  title={t('projectCard.hoverText.pr')}
                 >
                   <CallMergeIcon />
                   <span className={styles.footerCounts}>
@@ -160,7 +208,7 @@ export const ProjectCard = ({
                     color="primary"
                     variant="outlined"
                   >
-                    More
+                    {t('projectCard.moreLink')}
                   </LinkButton>
                 )}
               </div>

@@ -13,6 +13,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { LinkButton, MarkdownContent } from '@backstage/core-components';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import { useSynergyTranslation } from '../../hooks';
 
 const useStyles = makeStyles<Theme>(theme => ({
   heading: {
@@ -39,12 +40,12 @@ const useStyles = makeStyles<Theme>(theme => ({
     boxShadow: 'none',
   },
   accordionDetails: {
-    backgroundColor: theme.palette.secondary.contrastText,
     marginTop: '0.5rem',
   },
 }));
 
 export const IssuesList = ({ issues }: { issues: ProjectIssue[] }) => {
+  const { t } = useSynergyTranslation();
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState('');
 
@@ -82,7 +83,7 @@ export const IssuesList = ({ issues }: { issues: ProjectIssue[] }) => {
             >
               {issue.author && (
                 <div>
-                  Reporter:{' '}
+                  {t('issueCard.reporter')}
                   <a
                     href={issue.author?.url}
                     className={classes.link}
@@ -93,7 +94,7 @@ export const IssuesList = ({ issues }: { issues: ProjectIssue[] }) => {
                 </div>
               )}
               <span>
-                Last Updated on:{' '}
+                {t('issueCard.updatedAt')}
                 <span>{new Date(issue.updatedAt).toLocaleString()}</span>
               </span>
               <LinkButton
@@ -101,9 +102,11 @@ export const IssuesList = ({ issues }: { issues: ProjectIssue[] }) => {
                 className={classes.navigateBtn}
                 target="_blank"
                 variant="contained"
-                title="Go to GitHub"
+                title={t('issueCard.githubLinkHoverText')}
               >
-                {issue.isOpen ? 'Contribute' : 'Open on GitHub'}
+                {issue.isOpen
+                  ? t('issueCard.contribute')
+                  : t('issueCard.githubLink')}
                 <OpenInNewIcon
                   fontSize="small"
                   className={classes.navigateIcon}

@@ -18,5 +18,10 @@ export interface Config {
         hideIssues?: boolean;
       };
     };
+    /**
+     * Catalog base path - will be used for creating catalog entity link
+     * @visibility frontend
+     */
+    catalogBasePath?: string;
   };
 }
