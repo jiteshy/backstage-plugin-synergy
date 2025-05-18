@@ -163,15 +163,6 @@ export async function gitlabProviderImpl({
   token,
   repoTag,
 }: DataProviderConfig): Promise<SynergyApi> {
-  // Log configuration (without sensitive data)
-  console.log('GitLab Configuration:', {
-    org,
-    host,
-    apiBaseUrl,
-    hasToken: !!token,
-    repoTag,
-  });
-
   const client = graphql.defaults({
     baseUrl: apiBaseUrl,
     headers: {
@@ -182,13 +173,6 @@ export async function gitlabProviderImpl({
   // Helper function to handle GraphQL errors
   async function executeQuery<T>(query: string, variables?: any): Promise<T> {
     try {
-      // Log request details (without sensitive data)
-      console.log('Making GitLab API request:', {
-        query: query.split('\n')[0],
-        variables,
-        baseUrl: apiBaseUrl,
-      });
-
       const response = await client(query, variables);
       if (!response) {
         throw new GitLabApiError('Empty response from GitLab API');
@@ -200,14 +184,6 @@ export async function gitlabProviderImpl({
         message: error.message,
         status: error.status,
         response: error.response,
-        headers: error.request?.headers
-          ? {
-              ...error.request.headers,
-              'PRIVATE-TOKEN': error.request.headers['PRIVATE-TOKEN']
-                ? '[REDACTED]'
-                : undefined,
-            }
-          : undefined,
         query: query.split('\n')[0],
         variables,
       });
@@ -508,8 +484,6 @@ export async function gitlabProviderImpl({
           }
         }
       `;
-
-      console.log('query', query);
 
       const response = await executeQuery<{
         currentUser: {
