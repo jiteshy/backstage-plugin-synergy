@@ -245,7 +245,7 @@ export async function githubProviderImpl({
   repoTag,
 }: DataProviderConfig): Promise<SynergyApi> {
   const githubCredentialsProvider =
-    SingleInstanceGithubCredentialsProvider.create({ host, token });
+    SingleInstanceGithubCredentialsProvider.create({ host: host!, token });
   const orgUrl = `https://${host}/${org}`;
   const { headers } = await githubCredentialsProvider.getCredentials({
     url: orgUrl,

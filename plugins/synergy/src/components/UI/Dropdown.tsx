@@ -25,8 +25,10 @@ export const Dropdown = ({
         <MenuItem value="">
           <em>All</em>
         </MenuItem>
-        {items?.map((item: string) => (
-          <MenuItem value={item}>{item}</MenuItem>
+        {items?.map((item: string, index: number) => (
+          <MenuItem key={index} value={item}>
+            {item}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>

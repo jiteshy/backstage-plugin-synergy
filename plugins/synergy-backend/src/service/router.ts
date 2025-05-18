@@ -6,6 +6,7 @@ import {
 } from '@backstage/backend-plugin-api';
 import { Request } from 'express';
 import { githubProviderImpl } from '../lib/github';
+import { gitlabProviderImpl } from '../lib/gitlab';
 import { DataProviderConfig, readConfig } from '../lib/configReader';
 import {
   Project,
@@ -38,6 +39,8 @@ export async function createRouter(
   let providerImpl: SynergyApi;
   if (provider.toLowerCase() === 'github') {
     providerImpl = await githubProviderImpl(providerConfig);
+  } else if (provider.toLowerCase() === 'gitlab') {
+    providerImpl = await gitlabProviderImpl(providerConfig);
   } else {
     throw new Error(`Provider implementation not found for: ${provider}`);
   }

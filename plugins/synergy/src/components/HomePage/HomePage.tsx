@@ -16,8 +16,13 @@ export const HomePage = () => {
   const { t } = useSynergyTranslation();
   const tabStyles = { fontSize: '16px', padding: '1rem 1.5rem' };
   const config = useApi(configApiRef);
+
+  // Get provider type
+  const providerType = config.getString('synergy.provider.type');
+
+  // Get hideIssues based on provider type
   const hideIssues = config.getOptionalBoolean(
-    'synergy.provider.github.hideIssues',
+    `synergy.provider.${providerType}.hideIssues`,
   );
 
   const issuesDependentTabs: TabContent[] = [
@@ -52,8 +57,13 @@ export const HomePage = () => {
 
   return (
     <TabbedCard>
-      {allTabs.map(tab => (
-        <CardTab label={tab.label} style={tab.style} icon={tab.icon}>
+      {allTabs.map((tab, index) => (
+        <CardTab
+          key={index}
+          label={tab.label}
+          style={tab.style}
+          icon={tab.icon}
+        >
           {tab.children}
         </CardTab>
       ))}

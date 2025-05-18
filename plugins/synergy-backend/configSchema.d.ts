@@ -5,9 +5,13 @@ export interface Config {
      */
     provider: {
       /**
+       * Type of provider to use (github or gitlab)
+       */
+      type: 'github' | 'gitlab';
+      /**
        * Github provider configuration
        */
-      github: {
+      github?: {
         /**
          * GitHub Org name you want to fetch the Inner-Source projects and issues from
          */
@@ -28,6 +32,31 @@ export interface Config {
          * @visibility secret
          */
         token: string;
+
+        /**
+         * Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitHub projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
+         */
+        hideIssues?: boolean;
+      };
+      /**
+       * GitLab provider configuration
+       */
+      gitlab?: {
+        /**
+         * Base url to call GitLab APIs e.g. https://gitlab.com/api
+         */
+        apiBaseUrl: string;
+
+        /**
+         * GitLab access token
+         * @visibility secret
+         */
+        token: string;
+
+        /**
+         * Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitLab projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
+         */
+        hideIssues?: boolean;
       };
     };
 

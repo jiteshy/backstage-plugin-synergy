@@ -4,17 +4,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.5.0](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.4.1...v1.5.0) (2024-12-22)
 
-
 ### Features
 
-* translation support added to plugin ([#18](https://github.com/jiteshy/backstage-plugin-synergy/issues/18)) ([1c1e7a7](https://github.com/jiteshy/backstage-plugin-synergy/commit/1c1e7a7298353de90abaec1f84966658eb250395))
+- translation support added to plugin ([#18](https://github.com/jiteshy/backstage-plugin-synergy/issues/18)) ([1c1e7a7](https://github.com/jiteshy/backstage-plugin-synergy/commit/1c1e7a7298353de90abaec1f84966658eb250395))
 
 ### [1.4.1](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.4.0...v1.4.1) (2024-12-22)
 
-
 ### Bug Fixes
 
-* dark mode ui fixes ([#17](https://github.com/jiteshy/backstage-plugin-synergy/issues/17)) ([8d040e8](https://github.com/jiteshy/backstage-plugin-synergy/commit/8d040e89d044bd5b3e821c8d1aa958b610420f5c))
+- dark mode ui fixes ([#17](https://github.com/jiteshy/backstage-plugin-synergy/issues/17)) ([8d040e8](https://github.com/jiteshy/backstage-plugin-synergy/commit/8d040e89d044bd5b3e821c8d1aa958b610420f5c))
 
 ## [1.4.0](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.3.0...v1.4.0) (2024-12-20)
 

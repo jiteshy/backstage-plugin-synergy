@@ -2,8 +2,8 @@ import { Config } from '@backstage/config';
 
 export type DataProviderConfig = {
   provider: string;
-  org: string;
-  host: string;
+  org?: string;
+  host?: string;
   apiBaseUrl: string;
   token: string;
   repoTag: string;
@@ -11,14 +11,25 @@ export type DataProviderConfig = {
 
 export function readConfig(config: Config): DataProviderConfig {
   const repoTag = config.getString('synergy.repoTag');
-
   const synergyConfig = config.getConfig('synergy.provider');
-  // As of now, only Github provider is supported.
-  // This needs to be revisited when multiple providers are supported.
-  const provider = 'github';
+
+  // Get the provider from config, default to 'github' for backward compatibility
+  const provider = config.getString('synergy.provider.type');
+
+  // Check if the provider exists in the config
+  if (!synergyConfig.has(provider)) {
+    throw new Error(
+      `Provider '${provider}' not found in synergy.provider configuration`,
+    );
+  }
+
   const providerConfig = synergyConfig.getConfig(provider);
-  const org = providerConfig.getString('org');
-  const host = providerConfig.getString('host');
+
+  // Only get org and host for GitHub provider
+  const org =
+    provider === 'github' ? providerConfig.getString('org') : undefined;
+  const host =
+    provider === 'github' ? providerConfig.getString('host') : undefined;
   const token = providerConfig.getString('token');
   const apiBaseUrl = providerConfig.getString('apiBaseUrl');
 

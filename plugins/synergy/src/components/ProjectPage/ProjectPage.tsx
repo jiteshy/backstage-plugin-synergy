@@ -52,8 +52,13 @@ export const ProjectPage = () => {
     whiteSpace: 'nowrap',
   };
   const config = useApi(configApiRef);
+
+  // Get provider type
+  const providerType = config.getString('synergy.provider.type');
+
+  // Get hideIssues based on provider type
   const hideIssues = config.getOptionalBoolean(
-    'synergy.provider.github.hideIssues',
+    `synergy.provider.${providerType}.hideIssues`,
   );
   const { owner, project } = useRouteRefParams(projectRouteRef);
   const {
@@ -69,16 +74,20 @@ export const ProjectPage = () => {
   }
 
   const issueTabs: TabContent[] = [
-    {
-      label: t('projectPage.tabs.pinned'),
-      style: tabStyles,
-      children: (
-        <IssuesComponent
-          issues={projectData?.pinnedIssues}
-          message={t('projectPage.notFound.pinned')}
-        />
-      ),
-    },
+    ...(providerType === 'github'
+      ? [
+          {
+            label: t('projectPage.tabs.pinned'),
+            style: tabStyles,
+            children: (
+              <IssuesComponent
+                issues={projectData?.pinnedIssues}
+                message={t('projectPage.notFound.pinned')}
+              />
+            ),
+          },
+        ]
+      : []),
     {
       label: t('projectPage.tabs.all'),
       style: tabStyles,
