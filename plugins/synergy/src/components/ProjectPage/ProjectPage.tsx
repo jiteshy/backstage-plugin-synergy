@@ -74,16 +74,20 @@ export const ProjectPage = () => {
   }
 
   const issueTabs: TabContent[] = [
-    {
-      label: t('projectPage.tabs.pinned'),
-      style: tabStyles,
-      children: (
-        <IssuesComponent
-          issues={projectData?.pinnedIssues}
-          message={t('projectPage.notFound.pinned')}
-        />
-      ),
-    },
+    ...(providerType === 'github'
+      ? [
+          {
+            label: t('projectPage.tabs.pinned'),
+            style: tabStyles,
+            children: (
+              <IssuesComponent
+                issues={projectData?.pinnedIssues}
+                message={t('projectPage.notFound.pinned')}
+              />
+            ),
+          },
+        ]
+      : []),
     {
       label: t('projectPage.tabs.all'),
       style: tabStyles,

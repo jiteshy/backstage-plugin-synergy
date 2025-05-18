@@ -11,9 +11,12 @@ import { Dropdown } from '../UI';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { IssuesList } from '../IssuesList';
 import { InfoBanner } from '../InfoBanner';
+import { configApiRef, useApi } from '@backstage/core-plugin-api';
 
 export const Issues = () => {
   const { t } = useSynergyTranslation();
+  const config = useApi(configApiRef);
+  const providerType = config.getString('synergy.provider.type');
   const {
     value: issuesList,
     loading,
@@ -114,19 +117,21 @@ export const Issues = () => {
           />
         </Box>
       </Grid>
-      <Grid item xs={12} md={6}>
-        <InfoCard
-          title={t('issueTab.pinnedIssuesCard.title')}
-          subheader={t('issueTab.pinnedIssuesCard.subTitle')}
-        >
-          {filteredPinnedIssues.length ? (
-            <IssuesList issues={filteredPinnedIssues} />
-          ) : (
-            <p>{t('issueTab.pinnedIssuesCard.notFound')}</p>
-          )}
-        </InfoCard>
-      </Grid>
-      <Grid item xs={12} md={6}>
+      {providerType === 'github' && (
+        <Grid item xs={12} md={6}>
+          <InfoCard
+            title={t('issueTab.pinnedIssuesCard.title')}
+            subheader={t('issueTab.pinnedIssuesCard.subTitle')}
+          >
+            {filteredPinnedIssues.length ? (
+              <IssuesList issues={filteredPinnedIssues} />
+            ) : (
+              <p>{t('issueTab.pinnedIssuesCard.notFound')}</p>
+            )}
+          </InfoCard>
+        </Grid>
+      )}
+      <Grid item xs={12} md={providerType === 'github' ? 6 : 12}>
         <InfoCard
           title={t('issueTab.otherIssuesCard.title')}
           subheader={t('issueTab.otherIssuesCard.subTitle')}
