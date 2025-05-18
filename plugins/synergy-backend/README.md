@@ -38,11 +38,18 @@ The following configuration options are available for your app-config.yaml:
 ```yaml
 synergy:
   provider:
+    # Specify either github OR gitlab, not both
     github:
       org: jiteshy-synergy
       host: https://github.com
       apiBaseUrl: https://api.github.com
       token: <GitHub_Token>
+    # OR
+    gitlab:
+      org: jiteshy-synergy
+      host: https://gitlab.com
+      apiBaseUrl: https://gitlab.com
+      token: <GitLab_Token>
   repoTag: inner-source
 ```
 
@@ -51,8 +58,8 @@ The configuration values are:
 - provider
   - Type: Object
   - Required: Yes
-  - Details: configurations required to integrate GitHub as the source of truth for Inner-Source dashboard.
-    - Note: As of now, the plugin only supports GitHub.
+  - Details: configurations required to integrate either GitHub OR GitLab as the source of truth for Inner-Source dashboard.
+    - Note: Only one provider (GitHub or GitLab) should be specified at a time.
 - provider.github.org
   - Type: string
   - Required: Yes
@@ -69,6 +76,22 @@ The configuration values are:
   - Type: string
   - Required: Yes
   - Details: GitHub access token.
+- provider.gitlab.org
+  - Type: string
+  - Required: Yes
+  - Details: GitLab group name you want to fetch the Inner-Source projects and issues from.
+- provider.gitlab.host
+  - Type: string
+  - Required: Yes
+  - Details: GitLab host url e.g. https://gitlab.com
+- provider.gitlab.apiBaseUrl
+  - Type: string
+  - Required: Yes
+  - Details: Base url to call GitLab APIs e.g. https://gitlab.com
+- provider.gitlab.token
+  - Type: string
+  - Required: Yes
+  - Details: GitLab access token.
 - repoTag
   - Type: string
   - Required: Yes

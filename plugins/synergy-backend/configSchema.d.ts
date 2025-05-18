@@ -4,6 +4,7 @@ export interface Config {
      * Synergy plugin providers
      */
     provider: {
+      type: string;
       /**
        * Github provider configuration
        */
@@ -28,6 +29,38 @@ export interface Config {
          * @visibility secret
          */
         token: string;
+
+        /**
+         * Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitHub projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
+         */
+        hideIssues?: boolean;
+      };
+      gitlab: {
+        /**
+         * GitLab Org name you want to fetch the Inner-Source projects and issues from
+         */
+        org: string;
+
+        /**
+         * GitLab host url e.g. https://gitlab.com
+         */
+        host: string;
+
+        /**
+         * Base url to call GitLab APIs e.g. https://gitlab.com/api
+         */
+        apiBaseUrl: string;
+
+        /**
+         * GitLab access token
+         * @visibility secret
+         */
+        token: string;
+
+        /**
+         * Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitLab projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
+         */
+        hideIssues?: boolean;
       };
     };
 

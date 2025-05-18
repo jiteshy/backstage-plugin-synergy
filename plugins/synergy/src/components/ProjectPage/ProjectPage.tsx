@@ -52,8 +52,14 @@ export const ProjectPage = () => {
     whiteSpace: 'nowrap',
   };
   const config = useApi(configApiRef);
+
+  // Get provider type
+  const providerType =
+    config.getOptionalString('synergy.provider.type') || 'github';
+
+  // Get hideIssues based on provider type
   const hideIssues = config.getOptionalBoolean(
-    'synergy.provider.github.hideIssues',
+    `synergy.provider.${providerType}.hideIssues`,
   );
   const { owner, project } = useRouteRefParams(projectRouteRef);
   const {

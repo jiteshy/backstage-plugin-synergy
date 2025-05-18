@@ -4,7 +4,7 @@
 <img src="./docs/images/logo.png"/>
 </p>
 
-Backstage.io plugin for **Inner-Source** dashboard. This plugin is both frontend and backend that manages and displays **Inner-Source projects and issues** from your GitHub org within Backstage. This plugin allows users to:
+Backstage.io plugin for **Inner-Source** dashboard. This plugin is both frontend and backend that manages and displays **Inner-Source projects and issues** from your GitHub or Gitlab org within Backstage. This plugin allows users to:
 
 - Browse all the Inner-Source projects
 - View details of an Inner-Source project including Pinned Issues, Open Issues, Readme & Contributing guidelines.
@@ -12,6 +12,8 @@ Backstage.io plugin for **Inner-Source** dashboard. This plugin is both frontend
 - View details of an issue
 - Check their own contributions so far
 - Check the Inner-Source stats and leaderboard
+
+Plugin currently supports integration with Github and Gitlab.
 
 See more information from our [documentation](./docs/index.md).
 

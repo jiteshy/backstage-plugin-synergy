@@ -59,17 +59,29 @@ The following configuration options are available for your app-config.yaml:
 ```yaml
 synergy:
   provider:
+    ...
+    # Specify either github OR gitlab, not both
     github:
+      ...
+      hideIssues: <Optional true/false. Refer details below.>
+    # OR
+    gitlab:
+      ...
       hideIssues: <Optional true/false. Refer details below.>
   catalogBasePath: <Optional catalog entity base path>
 ```
 
 The configuration values are:
 
-- provider.github.hideIssues
+- provider
+  - Type: Object
+  - Required: Yes
+  - Details: configurations required to integrate either GitHub OR GitLab as the source of truth for Inner-Source dashboard.
+    - Note: Only one provider (GitHub or GitLab) should be specified at a time.
+- provider.github.hideIssues or provider.gitlab.hideIssues
   - Type: boolean
   - Required: No
-  - Details: Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitHub projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
+  - Details: Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitHub/GitLab projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
 - catalogBasePath
   - Type: string
   - Required: No

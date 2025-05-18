@@ -54,7 +54,7 @@ export const synergyTranslationRef = createTranslationRef({
       hoverText: {
         lock: 'Private Repository',
         unlock: 'Public Repository',
-        githubIconLink: 'Go to GitHub repo',
+        githubIconLink: 'Go to Repository',
         language: 'Primary language of the project',
         stars: 'Repository Stars',
         issues: 'Open Issues',
@@ -63,8 +63,8 @@ export const synergyTranslationRef = createTranslationRef({
     },
     issueCard: {
       contribute: 'Contribute',
-      githubLink: 'Open on GitHub',
-      githubLinkHoverText: 'Go to GitHub',
+      githubLink: 'Open Repository',
+      githubLinkHoverText: 'Go to Repository',
       reporter: 'Reporter: ',
       updatedAt: 'Last Updated on: ',
     },

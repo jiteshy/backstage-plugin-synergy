@@ -1,17 +1,29 @@
 # Plugin configuration
 
-The following configuration options are available for your app-config.yaml:
+The Synergy plugin supports two providers: GitHub and GitLab. You can configure either of them as below.
+
+## GitHub Configuration
 
 ```yaml
 synergy:
   provider:
-    type: github # Specify the provider type - github or gitlab
+    type: github
     github:
-      org: jiteshy-synergy
+      org: your-org-name
       host: https://github.com
       apiBaseUrl: https://api.github.com
-      token: <GitHub_Token>
+      token: ${GITHUB_TOKEN}
       hideIssues: <Optional true/false. Refer details below.>
+  catalogBasePath: <Optional catalog entity base path>
+  repoTag: inner-source
+```
+
+## GitLab Configuration
+
+```yaml
+synergy:
+  provider:
+    type: gitlab
     gitlab:
       org: your-group-name
       host: https://gitlab.com
@@ -29,6 +41,10 @@ The configuration values are:
   - Required: Yes
   - Details: configurations required to integrate GitHub or GitLab as the source of truth for Inner-Source dashboard.
     - Note: As of now, the plugin supports GitHub and GitLab.
+- provider.type
+  - Type: string
+  - Required: Yes
+  - Details: Provider type to integrate - github or gitlab
 - provider.github.org
   - Type: string
   - Required: Yes

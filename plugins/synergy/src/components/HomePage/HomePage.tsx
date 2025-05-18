@@ -16,8 +16,14 @@ export const HomePage = () => {
   const { t } = useSynergyTranslation();
   const tabStyles = { fontSize: '16px', padding: '1rem 1.5rem' };
   const config = useApi(configApiRef);
+
+  // Get provider type
+  const providerType =
+    config.getOptionalString('synergy.provider.type') || 'github';
+
+  // Get hideIssues based on provider type
   const hideIssues = config.getOptionalBoolean(
-    'synergy.provider.github.hideIssues',
+    `synergy.provider.${providerType}.hideIssues`,
   );
 
   const issuesDependentTabs: TabContent[] = [
