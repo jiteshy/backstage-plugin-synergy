@@ -14,6 +14,7 @@ describe('createRouter', () => {
         data: {
           synergy: {
             provider: {
+              type: 'github',
               github: {
                 org: 'test',
                 host: 'test',
