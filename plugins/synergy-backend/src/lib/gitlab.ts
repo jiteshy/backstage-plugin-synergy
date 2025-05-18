@@ -157,8 +157,6 @@ const GITLAB_PROJECT_QUERY_BASE_FIELDS = `
 `;
 
 export async function gitlabProviderImpl({
-  org,
-  host,
   apiBaseUrl,
   token,
   repoTag,

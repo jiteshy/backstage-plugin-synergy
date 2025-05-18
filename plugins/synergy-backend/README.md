@@ -40,15 +40,13 @@ synergy:
   provider:
     # Specify either github OR gitlab, not both
     github:
-      org: jiteshy-synergy
-      host: https://github.com
+      org: your-org-name # Required for GitHub
+      host: https://github.com # Required for GitHub
       apiBaseUrl: https://api.github.com
       token: <GitHub_Token>
     # OR
     gitlab:
-      org: jiteshy-synergy
-      host: https://gitlab.com
-      apiBaseUrl: https://gitlab.com
+      apiBaseUrl: https://gitlab.com/api
       token: <GitLab_Token>
   repoTag: inner-source
 ```
@@ -62,11 +60,11 @@ The configuration values are:
     - Note: Only one provider (GitHub or GitLab) should be specified at a time.
 - provider.github.org
   - Type: string
-  - Required: Yes
+  - Required: Yes (GitHub only)
   - Details: GitHub Org name you want to fetch the Inner-Source projects and issues from.
 - provider.github.host
   - Type: string
-  - Required: Yes
+  - Required: Yes (GitHub only)
   - Details: GitHub host url e.g. https://github.com
 - provider.github.apiBaseUrl
   - Type: string
@@ -76,18 +74,10 @@ The configuration values are:
   - Type: string
   - Required: Yes
   - Details: GitHub access token.
-- provider.gitlab.org
-  - Type: string
-  - Required: Yes
-  - Details: GitLab group name you want to fetch the Inner-Source projects and issues from.
-- provider.gitlab.host
-  - Type: string
-  - Required: Yes
-  - Details: GitLab host url e.g. https://gitlab.com
 - provider.gitlab.apiBaseUrl
   - Type: string
   - Required: Yes
-  - Details: Base url to call GitLab APIs e.g. https://gitlab.com
+  - Details: Base url to call GitLab APIs e.g. https://gitlab.com/api
 - provider.gitlab.token
   - Type: string
   - Required: Yes

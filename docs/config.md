@@ -9,8 +9,8 @@ synergy:
   provider:
     type: github
     github:
-      org: your-org-name
-      host: https://github.com
+      org: your-org-name # Required for GitHub
+      host: https://github.com # Required for GitHub
       apiBaseUrl: https://api.github.com
       token: ${GITHUB_TOKEN}
       hideIssues: <Optional true/false. Refer details below.>
@@ -25,8 +25,6 @@ synergy:
   provider:
     type: gitlab
     gitlab:
-      org: your-group-name
-      host: https://gitlab.com
       apiBaseUrl: https://gitlab.com/api
       token: <GitLab_Token>
       hideIssues: <Optional true/false. Refer details below.>
@@ -47,11 +45,11 @@ The configuration values are:
   - Details: Provider type to integrate - github or gitlab
 - provider.github.org
   - Type: string
-  - Required: Yes
+  - Required: Yes (GitHub only)
   - Details: GitHub Org name you want to fetch the Inner-Source projects and issues from.
 - provider.github.host
   - Type: string
-  - Required: Yes
+  - Required: Yes (GitHub only)
   - Details: GitHub host url e.g. https://github.com
 - provider.github.apiBaseUrl
   - Type: string
@@ -65,22 +63,18 @@ The configuration values are:
   - Type: boolean
   - Required: No
   - Details: Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitHub projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
-- provider.gitlab.org
-  - Type: string
-  - Required: Yes
-  - Details: GitLab group name you want to fetch the Inner-Source projects and issues from.
-- provider.gitlab.host
-  - Type: string
-  - Required: Yes
-  - Details: GitLab host url e.g. https://gitlab.com
 - provider.gitlab.apiBaseUrl
   - Type: string
   - Required: Yes
-  - Details: Base url to call GitLab APIs e.g. https://gitlab.com
+  - Details: Base url to call GitLab APIs e.g. https://gitlab.com/api
 - provider.gitlab.token
   - Type: string
   - Required: Yes
   - Details: GitLab access token.
+- provider.gitlab.hideIssues
+  - Type: boolean
+  - Required: No
+  - Details: Boolean indicating whether to hide the issues tab (e.g., when Issues not used in GitLab projects). Default is false. If true, only the project list and details (README & Contributing Guidelines) will be available, as other views depend on issues.
 - catalogBasePath
   - Type: string
   - Required: No

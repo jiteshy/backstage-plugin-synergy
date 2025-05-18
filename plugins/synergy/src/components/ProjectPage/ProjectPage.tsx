@@ -54,8 +54,7 @@ export const ProjectPage = () => {
   const config = useApi(configApiRef);
 
   // Get provider type
-  const providerType =
-    config.getOptionalString('synergy.provider.type') || 'github';
+  const providerType = config.getString('synergy.provider.type');
 
   // Get hideIssues based on provider type
   const hideIssues = config.getOptionalBoolean(

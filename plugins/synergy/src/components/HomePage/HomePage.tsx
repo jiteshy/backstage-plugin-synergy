@@ -18,8 +18,7 @@ export const HomePage = () => {
   const config = useApi(configApiRef);
 
   // Get provider type
-  const providerType =
-    config.getOptionalString('synergy.provider.type') || 'github';
+  const providerType = config.getString('synergy.provider.type');
 
   // Get hideIssues based on provider type
   const hideIssues = config.getOptionalBoolean(
@@ -58,8 +57,13 @@ export const HomePage = () => {
 
   return (
     <TabbedCard>
-      {allTabs.map(tab => (
-        <CardTab label={tab.label} style={tab.style} icon={tab.icon}>
+      {allTabs.map((tab, index) => (
+        <CardTab
+          key={index}
+          label={tab.label}
+          style={tab.style}
+          icon={tab.icon}
+        >
           {tab.children}
         </CardTab>
       ))}

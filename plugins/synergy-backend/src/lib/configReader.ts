@@ -2,8 +2,8 @@ import { Config } from '@backstage/config';
 
 export type DataProviderConfig = {
   provider: string;
-  org: string;
-  host: string;
+  org?: string;
+  host?: string;
   apiBaseUrl: string;
   token: string;
   repoTag: string;
@@ -14,8 +14,7 @@ export function readConfig(config: Config): DataProviderConfig {
   const synergyConfig = config.getConfig('synergy.provider');
 
   // Get the provider from config, default to 'github' for backward compatibility
-  const provider =
-    config.getOptionalString('synergy.provider.type') || 'github';
+  const provider = config.getString('synergy.provider.type');
 
   // Check if the provider exists in the config
   if (!synergyConfig.has(provider)) {
@@ -26,8 +25,11 @@ export function readConfig(config: Config): DataProviderConfig {
 
   const providerConfig = synergyConfig.getConfig(provider);
 
-  const org = providerConfig.getString('org');
-  const host = providerConfig.getString('host');
+  // Only get org and host for GitHub provider
+  const org =
+    provider === 'github' ? providerConfig.getString('org') : undefined;
+  const host =
+    provider === 'github' ? providerConfig.getString('host') : undefined;
   const token = providerConfig.getString('token');
   const apiBaseUrl = providerConfig.getString('apiBaseUrl');
 

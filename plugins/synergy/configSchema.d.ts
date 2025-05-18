@@ -5,12 +5,30 @@ export interface Config {
      */
     provider: {
       /**
+       * Type of provider to use (github or gitlab)
+       * @visibility frontend
+       */
+      type: 'github' | 'gitlab';
+      /**
        * Github provider configuration
        */
-      github: {
+      github?: {
         /**
          * Boolean indicating whether to hide the issues tab (e.g., when Issues
          * not used in GitHub projects). Default is false.
+         * If true, only the project list and details (README & Contributing Guidelines)
+         * will be available, as other views depend on issues.
+         * @visibility frontend
+         */
+        hideIssues?: boolean;
+      };
+      /**
+       * GitLab provider configuration
+       */
+      gitlab?: {
+        /**
+         * Boolean indicating whether to hide the issues tab (e.g., when Issues
+         * not used in GitLab projects). Default is false.
          * If true, only the project list and details (README & Contributing Guidelines)
          * will be available, as other views depend on issues.
          * @visibility frontend

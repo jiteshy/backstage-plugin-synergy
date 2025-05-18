@@ -4,11 +4,14 @@ export interface Config {
      * Synergy plugin providers
      */
     provider: {
-      type: string;
+      /**
+       * Type of provider to use (github or gitlab)
+       */
+      type: 'github' | 'gitlab';
       /**
        * Github provider configuration
        */
-      github: {
+      github?: {
         /**
          * GitHub Org name you want to fetch the Inner-Source projects and issues from
          */
@@ -35,17 +38,10 @@ export interface Config {
          */
         hideIssues?: boolean;
       };
-      gitlab: {
-        /**
-         * GitLab Org name you want to fetch the Inner-Source projects and issues from
-         */
-        org: string;
-
-        /**
-         * GitLab host url e.g. https://gitlab.com
-         */
-        host: string;
-
+      /**
+       * GitLab provider configuration
+       */
+      gitlab?: {
         /**
          * Base url to call GitLab APIs e.g. https://gitlab.com/api
          */
