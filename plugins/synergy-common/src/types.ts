@@ -9,6 +9,8 @@ export type Contributors = {
 export type Project = {
   id: string;
   name: string;
+  fullPath: string;
+  displayName: string;
   description: string;
   url: string;
   visibility: string;

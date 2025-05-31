@@ -553,6 +553,8 @@ function formatProject(repo: Repository, repoTag: string): Project {
   return {
     id: repo.id,
     name: repo.name,
+    fullPath: `${repo.owner}/${repo.name}`,
+    displayName: repo.name,
     description: repo.description,
     url: repo.url,
     visibility: repo.visibility,

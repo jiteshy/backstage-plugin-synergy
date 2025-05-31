@@ -23,6 +23,8 @@ class GitLabApiError extends Error {
 type GitLabProject = {
   id: string;
   name: string;
+  fullPath: string;
+  displayName: string;
   description: string;
   webUrl: string;
   visibility: string;
@@ -113,6 +115,7 @@ type GitLabResponse<T> = {
 const GITLAB_PROJECT_QUERY_BASE_FIELDS = `
   id
   name
+  fullPath
   description
   webUrl
   visibility
@@ -234,7 +237,9 @@ export async function gitlabProviderImpl({
 
     return {
       id: project.id,
-      name: project.name,
+      name: project.fullPath.replace(`${project.namespace.fullPath}/`, ''),
+      fullPath: project.fullPath,
+      displayName: project.name,
       description: project.description || '',
       url: project.webUrl,
       visibility: project.visibility,

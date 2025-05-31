@@ -149,8 +149,8 @@ export const ProjectCard = ({
                   <OpenInNewIcon fontSize="small" />
                 </a>
               </div>
-              <div className={styles.title} title={project.name}>
-                {project.name}
+              <div className={styles.title} title={project.displayName}>
+                {project.displayName}
               </div>
               <div className={styles.description}>
                 {project.description ?? t('projectCard.noDescription')}
