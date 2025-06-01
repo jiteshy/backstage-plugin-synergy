@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.5.1...v1.5.2) (2025-06-01)
+
+
+### Bug Fixes
+
+* **gitlab:** introduce displayName property to access to Gitlab projects when project name is different from the one in the URL. ([#25](https://github.com/jiteshy/backstage-plugin-synergy/issues/25)) ([4e3ac97](https://github.com/jiteshy/backstage-plugin-synergy/commit/4e3ac978118adf4aa5089bf863b152322c2f1eb1))
+
 ### [1.5.1](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.5.0...v1.5.1) (2025-05-18)
 
 ## [1.5.0](https://github.com/jiteshy/backstage-plugin-synergy/compare/v1.4.1...v1.5.0) (2024-12-22)
