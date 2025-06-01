@@ -26,7 +26,7 @@
     "@backstage/plugin-auth-node": "^0.5.4",
     "@backstage/plugin-catalog-backend": "^1.28.0",
     "@backstage/plugin-catalog-backend-module-scaffolder-entity-model": "^0.2.2",
-    "@backstage/plugin-permission-backend": "^0.5.51",
+    "@backstage/plugin-permission-backend": "^0.6.0",
     "@backstage/plugin-permission-backend-module-allow-all-policy": "^0.2.2",
     "@backstage/plugin-permission-common": "^0.8.2",
     "@backstage/plugin-permission-node": "^0.8.5",
