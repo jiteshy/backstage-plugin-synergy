@@ -1,13 +1,15 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage
-  description: An example of a Backstage application.
-  # Example for optional annotations
-  # annotations:
-  #   github.com/project-slug: backstage/backstage
-  #   backstage.io/techdocs-ref: dir:.
+  name: backstage-plugin-synergy
+  description: Inner Source hub for your organization.
+  tags:
+    - react
+    - nodejs
+    - typescript
+  annotations:
+    github.com/project-slug: jiteshy/backstage-plugin-synergy
 spec:
   type: website
-  owner: john@example.com
-  lifecycle: experimental
+  lifecycle: production
+  owner: user:default/jiteshy
