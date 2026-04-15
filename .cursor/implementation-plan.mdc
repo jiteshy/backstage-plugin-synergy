@@ -1,0 +1,94 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# GitLab Integration Implementation Plan
+
+## Overview
+This document outlines the implementation plan for adding GitLab integration to the Synergy Backstage plugin. The goal is to replicate the existing GitHub functionality using GitLab's GraphQL API.
+
+## Current Architecture
+- Frontend: React components in `packages/app/src/components/`
+- Backend: Express router in `plugins/synergy-backend/src/service/router.ts`
+- GitHub Integration: `plugins/synergy-backend/src/lib/github.ts`
+- Common Types: `@jiteshy/backstage-plugin-synergy-common`
+
+## Implementation Steps
+
+### Phase 1: Setup and Configuration
+1. Create GitLab GraphQL client setup
+   - Add GitLab GraphQL client configuration
+   - Set up authentication handling
+   - Create base query templates
+
+2. Add GitLab configuration options
+   - Update config reader to handle GitLab settings
+   - Add GitLab host and token configuration
+   - Add provider selection logic
+
+### Phase 2: Core Implementation
+3. Create GitLab provider implementation
+   - Implement `SynergyApi` interface for GitLab
+   - Create project listing functionality
+   - Implement project details fetching
+   - Add issue tracking support
+
+4. Implement data transformation
+   - Create GitLab to common type mappers
+   - Handle GitLab-specific data structures
+   - Ensure consistent data format with GitHub
+
+### Phase 3: Feature Implementation
+5. Add contribution tracking
+   - Implement user contribution fetching
+   - Add contribution statistics
+   - Create leaderboard functionality
+
+6. Add project statistics
+   - Implement project stats gathering
+   - Add issue statistics
+   - Create contribution metrics
+
+### Phase 4: Integration and Testing
+7. Update router implementation
+   - Add GitLab provider selection
+   - Update error handling
+   - Add provider-specific logging
+
+8. Add tests
+   - Create unit tests for GitLab provider
+   - Add integration tests
+   - Test provider switching
+
+### Phase 5: Documentation and Cleanup
+9. Update documentation
+   - Add GitLab configuration guide
+   - Update API documentation
+   - Add usage examples
+
+10. Code cleanup and optimization
+    - Review and optimize queries
+    - Add error handling improvements
+    - Clean up any technical debt
+
+## Success Criteria
+- GitLab integration works alongside GitHub integration
+- All existing features work with GitLab data
+- Provider selection is configurable
+- Documentation is complete and clear
+- Tests cover all major functionality
+
+## Dependencies
+- GitLab GraphQL API
+- Backstage plugin framework
+- Existing GitHub implementation for reference
+
+## Timeline
+- Phase 1: 1-2 days
+- Phase 2: 2-3 days
+- Phase 3: 2-3 days
+- Phase 4: 1-2 days
+- Phase 5: 1 day
+
+Total estimated time: 7-11 days 
