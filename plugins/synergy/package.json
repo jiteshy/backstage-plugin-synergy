@@ -46,11 +46,11 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@backstage/core-app-api": "^1.15.2",
-    "@backstage/core-components": "^0.16.1",
-    "@backstage/core-plugin-api": "^1.10.1",
-    "@backstage/errors": "^1.2.5",
-    "@backstage/theme": "^0.6.2",
+    "@backstage/core-app-api": "backstage:^",
+    "@backstage/core-components": "backstage:^",
+    "@backstage/core-plugin-api": "backstage:^",
+    "@backstage/errors": "backstage:^",
+    "@backstage/theme": "backstage:^",
     "@jiteshy/backstage-plugin-synergy-common": "workspace:^",
     "@material-ui/core": "^4.9.13",
     "@material-ui/icons": "^4.9.1",
@@ -63,9 +63,9 @@
     "react-router-dom": "6.0.0-beta.0 || ^6.3.0"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.29.2",
-    "@backstage/dev-utils": "^1.1.4",
-    "@backstage/test-utils": "^1.7.2",
+    "@backstage/cli": "backstage:^",
+    "@backstage/dev-utils": "backstage:^",
+    "@backstage/test-utils": "backstage:^",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.0.0",

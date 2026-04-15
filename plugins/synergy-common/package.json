@@ -46,7 +46,7 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.29.2"
+    "@backstage/cli": "backstage:^"
   },
   "files": [
     "dist"
