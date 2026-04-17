@@ -3342,7 +3342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/plugin-catalog-react@backstage:^::backstage=1.50.0&npm=2.1.2, @backstage/plugin-catalog-react@npm:^2.1.2":
+"@backstage/plugin-catalog-react@backstage:^::backstage=1.50.0&npm=2.1.2, @backstage/plugin-catalog-react@npm:^2.1.2, @backstage/plugin-catalog-react@npm:^2.1.3":
   version: 2.1.3
   resolution: "@backstage/plugin-catalog-react@npm:2.1.3"
   dependencies:
@@ -3942,24 +3942,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/plugin-search@backstage:^::backstage=1.50.0&npm=1.7.1, @backstage/plugin-search@npm:^1.7.1":
-  version: 1.7.1
-  resolution: "@backstage/plugin-search@npm:1.7.1"
+"@backstage/plugin-search-react@npm:^1.11.2":
+  version: 1.11.2
+  resolution: "@backstage/plugin-search-react@npm:1.11.2"
   dependencies:
     "@backstage/core-components": "npm:^0.18.9"
     "@backstage/core-plugin-api": "npm:^1.12.5"
-    "@backstage/errors": "npm:^1.3.0"
-    "@backstage/frontend-plugin-api": "npm:^0.16.0"
-    "@backstage/plugin-catalog-react": "npm:^2.1.2"
+    "@backstage/frontend-plugin-api": "npm:^0.16.1"
     "@backstage/plugin-search-common": "npm:^1.2.23"
-    "@backstage/plugin-search-react": "npm:^1.11.1"
+    "@backstage/theme": "npm:^0.7.3"
     "@backstage/types": "npm:^1.2.2"
-    "@backstage/ui": "npm:^0.14.0"
     "@backstage/version-bridge": "npm:^1.0.12"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
+    "@material-ui/lab": "npm:4.0.0-alpha.61"
+    lodash: "npm:^4.17.21"
     qs: "npm:^6.9.4"
-    react-use: "npm:^17.2.4"
+    react-use: "npm:^17.3.2"
+    uuid: "npm:^11.0.2"
+    zod: "npm:^3.25.76 || ^4.0.0"
   peerDependencies:
     "@types/react": ^17.0.0 || ^18.0.0
     react: ^17.0.0 || ^18.0.0
@@ -3968,7 +3969,38 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/c96140a0f53743ff1dc0f49791a1aeb5cb4e9c1190513f9ec399775857c9ecbc6314736e3607ec4239cae170474434c87f7c1008e1591c154013c1b1195cfc28
+  checksum: 10c0/9d5d273e27514687e5f2d06771337925d2e6dc00228d140fea5d01811cc537ea44bd6a332ed2a394c6dd79e7f07c408760af4aa68fd823bcfa874b363854bfd4
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-search@backstage:^::backstage=1.50.0&npm=1.7.1, @backstage/plugin-search@npm:^1.7.1":
+  version: 1.7.2
+  resolution: "@backstage/plugin-search@npm:1.7.2"
+  dependencies:
+    "@backstage/core-components": "npm:^0.18.9"
+    "@backstage/core-plugin-api": "npm:^1.12.5"
+    "@backstage/errors": "npm:^1.3.0"
+    "@backstage/frontend-plugin-api": "npm:^0.16.1"
+    "@backstage/plugin-catalog-react": "npm:^2.1.3"
+    "@backstage/plugin-search-common": "npm:^1.2.23"
+    "@backstage/plugin-search-react": "npm:^1.11.2"
+    "@backstage/types": "npm:^1.2.2"
+    "@backstage/ui": "npm:^0.14.1"
+    "@backstage/version-bridge": "npm:^1.0.12"
+    "@material-ui/core": "npm:^4.12.2"
+    "@material-ui/icons": "npm:^4.9.1"
+    qs: "npm:^6.9.4"
+    react-use: "npm:^17.2.4"
+    zod: "npm:^3.25.76 || ^4.0.0"
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+    react-router-dom: ^6.30.2
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/a555ec94a6faeb8fd7ba451a78d2f92b1f0b25fbdf261ef1b5894b3846278f4021269417e25bfb6dfae74dec8bb854ed2dc143b26d487f2422a939678aaa08ef
   languageName: node
   linkType: hard
 
