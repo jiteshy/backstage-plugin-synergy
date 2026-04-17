@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSynergyApi, useSynergyTranslation } from '../../hooks';
 import {
   CardTab,

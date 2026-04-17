@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import {
   InfoCard,
   Progress,
@@ -63,7 +63,7 @@ export const Issues = () => {
     return [...categories];
   };
 
-  const filterByCategory = (e: React.ChangeEvent<{ value: unknown }>) => {
+  const filterByCategory = (e: ChangeEvent<{ value: unknown }>) => {
     if (issuesList) {
       const currentCategory = e.target.value as string;
       if (currentCategory) {

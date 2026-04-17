@@ -1,11 +1,11 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 
 export type DropdownComponentProps = {
   label: string;
   current: string;
   items: string[];
-  handleSelect: (e: React.ChangeEvent<{ value: unknown }>) => void;
+  handleSelect: (e: ChangeEvent<{ value: unknown }>) => void;
 };
 
 export const Dropdown = ({

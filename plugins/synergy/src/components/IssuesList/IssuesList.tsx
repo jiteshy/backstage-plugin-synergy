@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEvent, useState } from 'react';
 import { ProjectIssue } from '@jiteshy/backstage-plugin-synergy-common';
 import {
   Accordion,
@@ -47,10 +47,10 @@ const useStyles = makeStyles<Theme>(theme => ({
 export const IssuesList = ({ issues }: { issues: ProjectIssue[] }) => {
   const { t } = useSynergyTranslation();
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState('');
+  const [expanded, setExpanded] = useState('');
 
   const handleChange =
-    (panel: string) => (_event: React.ChangeEvent<{}>, isExpanded: boolean) => {
+    (panel: string) => (_event: ChangeEvent<{}>, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : '');
     };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { CardTab, TabbedCard } from '@backstage/core-components';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import BugReportIcon from '@material-ui/icons/BugReport';
