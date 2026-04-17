@@ -52,7 +52,7 @@
     "@jiteshy/backstage-plugin-synergy-common": "workspace:^",
     "@octokit/graphql": "^5.0.0",
     "@types/express": "*",
-    "express": "^4.20.0",
+    "express": "^5.2.1",
     "express-promise-router": "^4.1.0",
     "node-fetch": "^2.6.7",
     "winston": "^3.2.1",
