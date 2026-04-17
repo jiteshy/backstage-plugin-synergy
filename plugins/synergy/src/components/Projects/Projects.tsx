@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import {
   ItemCardGrid,
   Progress,
@@ -41,7 +41,7 @@ export const Projects = () => {
     return [...categories];
   };
 
-  const filterByCategory = (e: React.ChangeEvent<{ value: unknown }>) => {
+  const filterByCategory = (e: ChangeEvent<{ value: unknown }>) => {
     if (projects) {
       const currentCategory = e.target.value as string;
       if (currentCategory) {
