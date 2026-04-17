@@ -63,9 +63,9 @@
     "@backstage/cli": "backstage:^",
     "@backstage/plugin-auth-backend": "backstage:^",
     "@backstage/plugin-auth-backend-module-guest-provider": "backstage:^",
-    "@types/supertest": "^2.0.12",
+    "@types/supertest": "^7.2.0",
     "msw": "^1.0.0",
-    "supertest": "^6.2.4"
+    "supertest": "^7.2.2"
   },
   "files": [
     "dist",
