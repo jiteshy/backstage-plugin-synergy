@@ -2841,6 +2841,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/frontend-plugin-api@npm:^0.16.1":
+  version: 0.16.1
+  resolution: "@backstage/frontend-plugin-api@npm:0.16.1"
+  dependencies:
+    "@backstage/errors": "npm:^1.3.0"
+    "@backstage/filter-predicates": "npm:^0.1.2"
+    "@backstage/types": "npm:^1.2.2"
+    "@backstage/version-bridge": "npm:^1.0.12"
+    "@standard-schema/spec": "npm:^1.1.0"
+    zod: "npm:^3.25.76 || ^4.0.0"
+    zod-to-json-schema: "npm:^3.25.1"
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+    react-router-dom: ^6.30.2
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/113ceadb0e64c8e2e30a6d8a5bd61a6f6b2b000332b01d79262a207408a137e298e12f04a71cad2097b061622052b9af0e9fd604388fb80c6ebd99051279836a
+  languageName: node
+  linkType: hard
+
 "@backstage/integration-aws-node@npm:^0.1.12, @backstage/integration-aws-node@npm:^0.1.21":
   version: 0.1.21
   resolution: "@backstage/integration-aws-node@npm:0.1.21"
@@ -3320,8 +3343,8 @@ __metadata:
   linkType: hard
 
 "@backstage/plugin-catalog-react@backstage:^::backstage=1.50.0&npm=2.1.2, @backstage/plugin-catalog-react@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@backstage/plugin-catalog-react@npm:2.1.2"
+  version: 2.1.3
+  resolution: "@backstage/plugin-catalog-react@npm:2.1.3"
   dependencies:
     "@backstage/catalog-client": "npm:^1.15.0"
     "@backstage/catalog-model": "npm:^1.8.0"
@@ -3330,13 +3353,13 @@ __metadata:
     "@backstage/core-plugin-api": "npm:^1.12.5"
     "@backstage/errors": "npm:^1.3.0"
     "@backstage/filter-predicates": "npm:^0.1.2"
-    "@backstage/frontend-plugin-api": "npm:^0.16.0"
+    "@backstage/frontend-plugin-api": "npm:^0.16.1"
     "@backstage/integration-react": "npm:^1.2.17"
     "@backstage/plugin-catalog-common": "npm:^1.1.9"
     "@backstage/plugin-permission-common": "npm:^0.9.8"
     "@backstage/plugin-permission-react": "npm:^0.5.0"
     "@backstage/types": "npm:^1.2.2"
-    "@backstage/ui": "npm:^0.14.0"
+    "@backstage/ui": "npm:^0.14.1"
     "@backstage/version-bridge": "npm:^1.0.12"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
@@ -3362,7 +3385,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 10c0/dbbf760a3aa300eb96e804ea31f137ff9a3883d435532ff35c27cd0102eee4fb29b73918770d9273b9993c593413e0f0557dc34c6078862478695e997b2b6f26
+  checksum: 10c0/1d1aff4f6831bdeb2541611798a886fea332ee0346e9d9d0231cca0560640fe4e16fb83b0bfb9771e3195f0a64c83c704e8b132ff9920c52be9f06330f0a30b8
   languageName: node
   linkType: hard
 
@@ -4268,6 +4291,30 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/2fe5ecacf44090ba429a922ab9a4c4fdc294bce921ce6ec61df6496357be96e5412cabd65da23eda9bc7ad86c7a9789e0bc99658166f692d941f91028dcc0071
+  languageName: node
+  linkType: hard
+
+"@backstage/ui@npm:^0.14.1":
+  version: 0.14.1
+  resolution: "@backstage/ui@npm:0.14.1"
+  dependencies:
+    "@backstage/version-bridge": "npm:^1.0.12"
+    "@remixicon/react": "npm:^4.6.0"
+    "@tanstack/react-table": "npm:^8.21.3"
+    clsx: "npm:^2.1.1"
+    react-aria: "npm:^3.48.0"
+    react-aria-components: "npm:^1.17.0"
+    react-stately: "npm:^3.46.0"
+    use-sync-external-store: "npm:^1.4.0"
+  peerDependencies:
+    "@types/react": ^18.0.0
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    react-router-dom: ^6.30.2
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/0546474770e3a980dd9b1014023b64a7e4710ee04721db16f756d2c00c8589b3f34fbe3e6f2bfcdd110e0c6b041d67e6e4b997b5996946018fd84144c39519fc
   languageName: node
   linkType: hard
 
@@ -28603,7 +28650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-aria-components@npm:^1.14.0":
+"react-aria-components@npm:^1.14.0, react-aria-components@npm:^1.17.0":
   version: 1.17.0
   resolution: "react-aria-components@npm:1.17.0"
   dependencies:
@@ -28620,7 +28667,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-aria@npm:3.48.0, react-aria@npm:^3.47.0":
+"react-aria@npm:3.48.0, react-aria@npm:^3.47.0, react-aria@npm:^3.48.0":
   version: 3.48.0
   resolution: "react-aria@npm:3.48.0"
   dependencies:
@@ -29061,7 +29108,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-stately@npm:3.46.0, react-stately@npm:^3.45.0":
+"react-stately@npm:3.46.0, react-stately@npm:^3.45.0, react-stately@npm:^3.46.0":
   version: 3.46.0
   resolution: "react-stately@npm:3.46.0"
   dependencies:
